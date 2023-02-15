@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>notify.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="close-small.png" />
+    <None Remove="close.png" />
+    <None Remove="notify.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="notify.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="close-small.png" />
+    <Resource Include="close.png" />
+    <Resource Include="notify.ico" />
+  </ItemGroup>
+
+</Project>

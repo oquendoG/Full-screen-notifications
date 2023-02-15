@@ -1,0 +1,44 @@
+C:\Users\woquendo\Desktop\Notifications - copia\bin\Debug\net7.0-windows\FullScreenNotifications.exe
+C:\Users\woquendo\Desktop\Notifications - copia\bin\Debug\net7.0-windows\FullScreenNotifications.deps.json
+C:\Users\woquendo\Desktop\Notifications - copia\bin\Debug\net7.0-windows\FullScreenNotifications.runtimeconfig.json
+C:\Users\woquendo\Desktop\Notifications - copia\bin\Debug\net7.0-windows\FullScreenNotifications.dll
+C:\Users\woquendo\Desktop\Notifications - copia\bin\Debug\net7.0-windows\FullScreenNotifications.pdb
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.csproj.AssemblyReference.cache
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\MainWindow.g.cs
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\App.g.cs
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications_Content.g.cs
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications_MarkupCompile.cache
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications_MarkupCompile.lref
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\MainWindow.baml
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.g.resources
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.AssemblyInfoInputs.cache
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.AssemblyInfo.cs
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.csproj.CoreCompileInputs.cache
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.dll
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\refint\FullScreenNotifications.dll
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.pdb
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\FullScreenNotifications.genruntimeconfig.cache
+C:\Users\woquendo\Desktop\Notifications - copia\obj\Debug\net7.0-windows\ref\FullScreenNotifications.dll
+C:\Users\woquendo\Desktop\FullScreenNotifications\bin\Debug\net7.0-windows\FullScreenNotifications.exe
+C:\Users\woquendo\Desktop\FullScreenNotifications\bin\Debug\net7.0-windows\FullScreenNotifications.deps.json
+C:\Users\woquendo\Desktop\FullScreenNotifications\bin\Debug\net7.0-windows\FullScreenNotifications.runtimeconfig.json
+C:\Users\woquendo\Desktop\FullScreenNotifications\bin\Debug\net7.0-windows\FullScreenNotifications.dll
+C:\Users\woquendo\Desktop\FullScreenNotifications\bin\Debug\net7.0-windows\FullScreenNotifications.pdb
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.csproj.AssemblyReference.cache
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\MainWindow.g.cs
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\App.g.cs
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications_Content.g.cs
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications_MarkupCompile.cache
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications_MarkupCompile.lref
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\MainWindow.baml
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.g.resources
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.AssemblyInfoInputs.cache
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.AssemblyInfo.cs
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.csproj.CoreCompileInputs.cache
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.dll
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\refint\FullScreenNotifications.dll
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.pdb
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.genruntimeconfig.cache
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\ref\FullScreenNotifications.dll
