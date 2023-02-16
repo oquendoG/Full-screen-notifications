@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Notificaction;
 /// <summary>
@@ -12,4 +14,20 @@ namespace Notificaction;
 /// </summary>
 public partial class App : Application
 {
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        // Crea un temporizador de 90 segundos
+        var timer = new DispatcherTimer();
+        timer.Interval = TimeSpan.FromSeconds(90);
+        timer.Tick += Timer_Tick;
+        timer.Start();
+    }
+
+    private void Timer_Tick(object sender, EventArgs e)
+    {
+        // Cierra la aplicación
+        Current.Shutdown();
+    }
 }

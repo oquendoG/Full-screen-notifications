@@ -11,7 +11,9 @@
   <ItemGroup>
     <None Remove="close-small.png" />
     <None Remove="close.png" />
+    <None Remove="left.png" />
     <None Remove="notify.ico" />
+    <None Remove="rigth.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +23,9 @@
   <ItemGroup>
     <Resource Include="close-small.png" />
     <Resource Include="close.png" />
+    <Resource Include="left.png" />
     <Resource Include="notify.ico" />
+    <Resource Include="rigth.png" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace Notificaction;
 /// <summary>
@@ -211,8 +214,9 @@ public partial class MainWindow : Window
         return _previousImgNumber;
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    protected override void OnClosing(CancelEventArgs e)
     {
-        Application.Current.Shutdown();
+        e.Cancel = true;
+        base.OnClosing(e);
     }
 }

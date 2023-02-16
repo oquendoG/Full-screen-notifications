@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Notificaction"
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="None" Background="#FF2F2F2F">
-    <Grid Width="1280" Height="720" FlowDirection="RightToLeft">
+    <Grid Width="1280" Height="720" FlowDirection="RightToLeft" Cursor="Hand">
         <Grid.RowDefinitions>
             <RowDefinition Height="79*"/>
             <RowDefinition Height="271*"/>
@@ -15,34 +15,54 @@
                VerticalAlignment="Center"
                Loaded="MainImage_Loaded" Panel.ZIndex="1"
                RenderTransformOrigin="1.52,0.453" Grid.RowSpan="2"
-               Margin="0,0,0,0"/>
+               Margin="0,0,0,0" Cursor="Hand"/>
+        <Border BorderThickness="2" CornerRadius="10" BorderBrush="#FF2A2A2A" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="44" Margin="0,510,0,0" Grid.Row="1" Panel.ZIndex="29" Cursor="Hand">
+            <Grid x:Name="ContainerControls" Grid.Row="1"  Margin="0,0,0,0" Background="#8C212121" Cursor="Hand" VerticalAlignment="Bottom" Panel.ZIndex="30">
 
-        <Button x:Name="btnAtras" Panel.ZIndex="10"
-                Content="Anterior"
-                HorizontalAlignment="Left"
-                Margin="1136,462,0,0"
-                VerticalAlignment="Top"
-                Width="99" Height="34"
+                <Button x:Name="btnSiguiente" Panel.ZIndex="10"
+                Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Width="34"
+                Height="34" Click="Button_ClickNext" FontFamily="Roboto"
+                FontSize="16" Opacity="0.89" OpacityMask="White"
+                BorderBrush="Transparent" SnapsToDevicePixels="True" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Margin="5,5,5,5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/rigth.png"/>
+                    </Button.Background>
+
+                </Button>
+
+                <Button x:Name="btnAtras" Panel.ZIndex="10"
+                Content=""
+                HorizontalAlignment="Center"
+                Margin="316,5,5,5"
+                VerticalAlignment="Center"
+                Width="34" Height="34"
                 Click="Button_ClickPrevious" FontFamily="Roboto"
                 FontSize="16" Opacity="0.89"
-                OpacityMask="White" Background="White"
-                BorderBrush="Transparent" Cursor="Hand" Grid.Row="1" />
+                OpacityMask="White"
+                BorderBrush="Transparent" Cursor="Hand" RenderTransformOrigin="0.5,0.5" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/left.png"/>
+                    </Button.Background>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
 
-        <Button x:Name="btnSiguiente" Panel.ZIndex="10"
-                Content="Siguiente" HorizontalAlignment="Left"
-                Margin="30,462,0,0" VerticalAlignment="Top" Width="99"
-                Height="34" Click="Button_ClickNext" FontFamily="Roboto"
-                FontSize="16" Opacity="0.89" OpacityMask="White" Background="White"
-                BorderBrush="Transparent" SnapsToDevicePixels="True" Cursor="Hand"
-                Grid.Row="1"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" Click="Button_Click" Height="34" Width="34" Panel.ZIndex="20" IsCancel="True">
-            <Button.Foreground>
-                <ImageBrush ImageSource="/close.png"/>
-            </Button.Foreground>
-            <Button.Background>
-                <ImageBrush Stretch="UniformToFill" ImageSource="/close-small.png"/>
-            </Button.Background>
-        </Button>
+                </Button>
 
+            </Grid>
+        </Border>
     </Grid>
 </Window>
