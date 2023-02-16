@@ -42,3 +42,4 @@ C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\refin
 C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.pdb
 C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\FullScreenNotifications.genruntimeconfig.cache
 C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\ref\FullScreenNotifications.dll
+C:\Users\woquendo\Desktop\FullScreenNotifications\obj\Debug\net7.0-windows\App.baml

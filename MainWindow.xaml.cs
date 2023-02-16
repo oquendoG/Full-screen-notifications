@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -19,13 +19,25 @@ public partial class MainWindow : Window
     private int _counter = 1;
     private int _previousImgNumber;
     private int _maxImageNumber;
-    private string _userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\NotificationsImg";
-    protected string _routeFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Savings.txt";
+    private DispatcherTimer timer;
+    private string _userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\FullScreenNotificationsImg";
+    protected string _routeFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\FullScreenSavings.txt";
 
     public MainWindow()
     {
         InitializeComponent();
-        PositionWindow();
+
+        timer = new DispatcherTimer();
+        timer.Interval = TimeSpan.FromSeconds(80);
+        timer.Tick += Timer_Tick;
+        timer.Start();
+
+    }
+
+    private void Timer_Tick(object sender, EventArgs e)
+    {
+        btnEncuesta.Visibility = Visibility.Visible;
+        timer.Stop();
     }
 
     private async void MainImage_Loaded(object sender, RoutedEventArgs e)
@@ -105,7 +117,7 @@ public partial class MainWindow : Window
 
     private Task CreateFile()
     {
-        //Creamos el archivo de configuración
+        //Creamos el archivo de savings.txt
         if (!File.Exists(_routeFile))
         {
             using FileStream file = File.Create(_routeFile);
@@ -131,17 +143,6 @@ public partial class MainWindow : Window
             Console.WriteLine(e.Message);
         }
 
-    }
-
-    private void PositionWindow()
-    {
-        double screenWidth = SystemParameters.PrimaryScreenWidth;
-        double screenHeight = SystemParameters.PrimaryScreenHeight;
-        double windowWidth = this.Width;
-        double windowHeight = this.Height;
-
-        this.Left = screenWidth - windowWidth;
-        this.Top = screenHeight - (windowHeight + 40);
     }
 
     private void Button_ClickPrevious(object sender, RoutedEventArgs e)
@@ -205,18 +206,34 @@ public partial class MainWindow : Window
             _previousImgNumber = _maxImageNumber;
         }
 
-        if(_previousImgNumber < 0)
+        if (_previousImgNumber < 0)
         {
             _previousImgNumber = _maxImageNumber - 1;
-            _counter+=3;
+            _counter += 3;
         }
 
         return _previousImgNumber;
     }
 
+    /// <summary>
+    /// Evita que se cierre la app con alt + f4
+    /// </summary>
     protected override void OnClosing(CancelEventArgs e)
     {
         e.Cancel = true;
         base.OnClosing(e);
+    }
+
+    /// <summary>
+    /// Abre la encuensta de satisfacción
+    /// </summary>
+    private void btnEncuesta_Click(object sender, RoutedEventArgs e)
+    {
+        var ps = new ProcessStartInfo("https://www.google.com/")
+        {
+            UseShellExecute = true,
+            Verb = "open"
+        };
+        Process.Start(ps);
     }
 }
