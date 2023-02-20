@@ -17,33 +17,36 @@
                Loaded="MainImage_Loaded" Panel.ZIndex="1"
                RenderTransformOrigin="1.52,0.453" Grid.RowSpan="2"
                Margin="0,0,0,0" Cursor="Arrow"/>
-        <Border BorderThickness="2" CornerRadius="10" BorderBrush="#FF2A2A2A" HorizontalAlignment="Center"
-                VerticalAlignment="Bottom" Height="44" Margin="0,510,0,0" Grid.Row="1" Panel.ZIndex="29" Cursor="Arrow">
-            <Grid x:Name="ContainerControls" Grid.Row="1"  Margin="0,0,0,0" Background="#8C212121" Cursor="Hand"
-                  VerticalAlignment="Bottom" Panel.ZIndex="30">
+        <Border x:Name="btnBorder" 
+                BorderThickness="2" 
+                CornerRadius="10" 
+                BorderBrush="#FF2A2A2A" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom" 
+                Height="44" Margin="0,510,0,0" 
+                Grid.Row="1" 
+                Panel.ZIndex="29" 
+                Cursor="Arrow" 
+                Visibility="Collapsed">
+            <Grid x:Name="ContainerControls" 
+                  Grid.Row="1"  
+                  Margin="0,0,0,0" 
+                  Background="#8C212121" 
+                  Cursor="Arrow"
+                  VerticalAlignment="Bottom" 
+                  Panel.ZIndex="30">
 
-                <Button x:Name="btnSiguiente" Panel.ZIndex="10"
-                Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Width="34"
-                Height="34" Click="Button_ClickNext" FontFamily="Roboto"
-                FontSize="16" Opacity="0.89" OpacityMask="White"
-                BorderBrush="Transparent" SnapsToDevicePixels="True" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Margin="5,5,5,5">
-                    <Button.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="-180"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Button.RenderTransform>
-                    <Button.Background>
-                        <ImageBrush ImageSource="/rigth.png"/>
-                    </Button.Background>
-
-                </Button>
-
-                <Button x:Name="btnEncuesta" Content="Encuesta de seguimiento" HorizontalAlignment="Left"
-                        Margin="106,0,0,0" VerticalAlignment="Center" Background="#00000000" Foreground="White"
-                        Height="38" RenderTransformOrigin="0.5,0.5" BorderBrush="#00707070" Click="btnEncuesta_Click"
+                <Button x:Name="btnEncuesta"
+                        Content="Encuesta de seguimiento" 
+                        HorizontalAlignment="Center"
+                        Margin="5,5,5,5" 
+                        VerticalAlignment="Center" 
+                        Background="#00000000" 
+                        Foreground="White"
+                        Height="38" 
+                        RenderTransformOrigin="0.5,0.5" 
+                        BorderBrush="#00707070" 
+                        Click="btnEncuesta_Click"
                         Visibility="Collapsed">
                     <Button.RenderTransform>
                         <TransformGroup>
@@ -53,31 +56,6 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Button.RenderTransform>
-                </Button>
-
-
-                <Button x:Name="btnAtras" Panel.ZIndex="10"
-                Content=""
-                HorizontalAlignment="Center"
-                Margin="316,5,5,5"
-                VerticalAlignment="Center"
-                Width="34" Height="34"
-                Click="Button_ClickPrevious" FontFamily="Roboto"
-                FontSize="16" Opacity="0.89"
-                OpacityMask="White"
-                BorderBrush="Transparent" Cursor="Hand" RenderTransformOrigin="0.5,0.5">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/left.png"/>
-                    </Button.Background>
-                    <Button.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="180"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Button.RenderTransform>
-
                 </Button>
 
             </Grid>

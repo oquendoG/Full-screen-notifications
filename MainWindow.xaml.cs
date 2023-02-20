@@ -17,33 +17,23 @@ namespace Notificaction;
 public partial class MainWindow : Window
 {
     private int _counter = 1;
-    private int _previousImgNumber;
     private int _maxImageNumber;
-    private DispatcherTimer timer;
+    string imageName;
     private string _userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\FullScreenNotificationsImg";
     protected string _routeFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\FullScreenSavings.txt";
+    protected string _routeTimeFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\FullScreenTime.txt";
+
 
     public MainWindow()
     {
         InitializeComponent();
-
-        timer = new DispatcherTimer();
-        timer.Interval = TimeSpan.FromSeconds(80);
-        timer.Tick += Timer_Tick;
-        timer.Start();
-
-    }
-
-    private void Timer_Tick(object sender, EventArgs e)
-    {
-        btnEncuesta.Visibility = Visibility.Visible;
-        timer.Stop();
     }
 
     private async void MainImage_Loaded(object sender, RoutedEventArgs e)
     {
         await CreateFolder();
         await CreateFile();
+        await CreateTimeFile();
         await ReadSavingsFile();
 
         _maxImageNumber = ReadFiles(_userFolder);
@@ -54,14 +44,19 @@ public partial class MainWindow : Window
         }
 
         await ShowImage();
+        await ShowSurvey();
     }
 
+    /// <summary>
+    /// Muestra la imagen en pantalla
+    /// </summary>
+    /// <returns>Una tarea completada</returns>
     private Task ShowImage()
     {
-        string nombreImagen = string.Format($"{_counter}{DefineExtension(_userFolder)}");
+        imageName = string.Format($"{_counter}{DefineExtension(_userFolder)}");
         try
         {
-            MainImage.Source = new BitmapImage(new Uri(@$"{_userFolder}\{nombreImagen}", UriKind.RelativeOrAbsolute));
+            MainImage.Source = new BitmapImage(new Uri(@$"{_userFolder}\{imageName}", UriKind.RelativeOrAbsolute));
         }
         catch (Exception ex)
         {
@@ -86,13 +81,22 @@ public partial class MainWindow : Window
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// leemos todas las fotos del directorio especficado en la ruta
+    /// </summary>
+    /// <param name="ruta">Define la ruta de las fotos</param>
+    /// <returns>La cantidad de archivos en la carpeta</returns>
     private int ReadFiles(string ruta)
     {
         string[] files = Directory.GetFiles(ruta);
-
         return files.Length;
     }
 
+    /// <summary>
+    /// Definimos la extrnsión de la foto
+    /// </summary>
+    /// <param name="ruta">Recesita la ruta para poder ver que extensión tiene</param>
+    /// <returns>la extesión en formato .png o .jpg</returns>
     private string DefineExtension(string ruta)
     {
         List<string> files = (Directory.GetFiles(ruta)).ToList();
@@ -105,6 +109,10 @@ public partial class MainWindow : Window
         return ".png";
     }
 
+    /// <summary>
+    /// Creamos la carpeta sino existe
+    /// </summary>
+    /// <returns></returns>
     private Task CreateFolder()
     {
         if (!Directory.Exists(_userFolder))
@@ -115,6 +123,10 @@ public partial class MainWindow : Window
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Crea el archivo savings.txt
+    /// </summary>
+    /// <returns></returns>
     private Task CreateFile()
     {
         //Creamos el archivo de savings.txt
@@ -128,13 +140,29 @@ public partial class MainWindow : Window
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Crea el archivo FullScreenTime.txt
+    /// </summary>
+    /// <returns></returns>
+    private Task CreateTimeFile()
+    {
+        if (!File.Exists(_routeTimeFile))
+        {
+            using FileStream file = File.Create(_routeTimeFile);
+            byte[] miInfo = new UTF8Encoding(true).GetBytes("60");
+            file.Write(miInfo, 0, miInfo.Length);
+        }
+
+        return Task.CompletedTask;
+    }
+
     private async Task ReadSavingsFile()
     {
         //leemos el archivo de Savings.txt
         try
         {
             using StreamReader reader = new(_routeFile);
-            _counter = int.Parse(await reader.ReadLineAsync());
+            _counter = int.Parse((await reader.ReadLineAsync()).Trim());
 
         }
         catch (Exception e)
@@ -143,76 +171,6 @@ public partial class MainWindow : Window
             Console.WriteLine(e.Message);
         }
 
-    }
-
-    private void Button_ClickPrevious(object sender, RoutedEventArgs e)
-    {
-        int previousImage = GetPreviousImageName();
-
-        try
-        {
-            MainImage.Source = new BitmapImage(new Uri(@$"{_userFolder}\{previousImage}{DefineExtension(_userFolder)}", UriKind.RelativeOrAbsolute));
-            _counter--;
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Ruta de imágen incorrecta");
-            Console.WriteLine(ex.Message);
-        }
-
-    }
-
-    private void Button_ClickNext(object sender, RoutedEventArgs e)
-    {
-        int currentImage = GetNextImageName();
-
-        if (currentImage == 0)
-        {
-            currentImage = 1;
-        }
-        try
-        {
-            MainImage.Source = new BitmapImage(new Uri(@$"{_userFolder}\{currentImage}{DefineExtension(_userFolder)}", UriKind.RelativeOrAbsolute));
-
-            _counter++;
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Ruta de imágen incorrecta");
-            Console.WriteLine(ex.Message);
-        }
-
-    }
-
-    private int GetNextImageName()
-    {
-        _previousImgNumber = _counter;
-
-        if (_previousImgNumber > _maxImageNumber)
-        {
-            _counter = 1;
-            _previousImgNumber = 1;
-        }
-
-        return _previousImgNumber;
-    }
-
-    private int GetPreviousImageName()
-    {
-        _previousImgNumber = _counter - 2;
-
-        if (_previousImgNumber == 0)
-        {
-            _previousImgNumber = _maxImageNumber;
-        }
-
-        if (_previousImgNumber < 0)
-        {
-            _previousImgNumber = _maxImageNumber - 1;
-            _counter += 3;
-        }
-
-        return _previousImgNumber;
     }
 
     /// <summary>
@@ -235,5 +193,19 @@ public partial class MainWindow : Window
             Verb = "open"
         };
         Process.Start(ps);
+    }
+
+    /// <summary>
+    /// Muestra el botón de encuensta en la imágen final
+    /// </summary>
+    private Task ShowSurvey()
+    {
+        if (imageName.Contains($"{_maxImageNumber}"))
+        {
+            btnBorder.Visibility = Visibility.Visible;
+            btnEncuesta.Visibility = Visibility.Visible;
+        }
+
+        return Task.CompletedTask;
     }
 }
