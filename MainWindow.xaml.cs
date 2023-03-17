@@ -233,8 +233,7 @@ public partial class MainWindow : Window
     {
         if (imageName.Contains($"{_maxImageNumber}"))
         {
-            btnBorder.Visibility = Visibility.Visible;
-            btnEncuesta.Visibility = Visibility.Visible;
+            btnLink.Visibility = Visibility.Visible;
         }
 
         return Task.CompletedTask;

@@ -6,60 +6,34 @@
         xmlns:local="clr-namespace:Notificaction"
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized" HorizontalAlignment="Center" VerticalAlignment="Center"
-        WindowStyle="None" Background="#FF2F2F2F" Cursor="Arrow">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="RightToLeft" Cursor="Arrow" >
+        WindowStyle="None" Background="#f9f9f9" Cursor="Arrow">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="RightToLeft" Cursor="Arrow" MinWidth="960" MinHeight="540">
         <Grid.RowDefinitions>
-            <RowDefinition Height="79*"/>
-            <RowDefinition Height="271*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Image x:Name="MainImage" HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Loaded="MainImage_Loaded" Panel.ZIndex="1"
-               RenderTransformOrigin="1.52,0.453" Grid.RowSpan="2"
-               Margin="0,0,0,0" Cursor="Arrow"/>
-        <Border x:Name="btnBorder" 
-                BorderThickness="2" 
-                CornerRadius="10" 
-                BorderBrush="#FF2A2A2A" 
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom" 
-                Height="44" Margin="0,510,0,0" 
-                Grid.Row="1" 
-                Panel.ZIndex="29" 
-                Cursor="Arrow" 
-                Visibility="Collapsed">
-            <Grid x:Name="ContainerControls" 
-                  Grid.Row="1"  
-                  Margin="0,0,0,0" 
-                  Background="#8C212121" 
-                  Cursor="Arrow"
-                  VerticalAlignment="Bottom" 
-                  Panel.ZIndex="30">
+               Cursor="Arrow"
+               Grid.Row="1"
+               Stretch="Uniform"/>
 
-                <Button x:Name="btnEncuesta"
-                        Content="Encuesta de seguimiento" 
-                        HorizontalAlignment="Center"
-                        Margin="5,5,5,5" 
-                        VerticalAlignment="Center" 
-                        Background="#00000000" 
-                        Foreground="White"
-                        Height="38" 
-                        RenderTransformOrigin="0.5,0.5" 
-                        BorderBrush="#00707070" 
-                        Click="btnEncuesta_Click"
-                        Visibility="Collapsed">
-                    <Button.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Button.RenderTransform>
-                </Button>
-
-            </Grid>
-        </Border>
+        <Button x:Name="btnLink"
+                Content="Clic acá para aprender "
+                Background="#063e60"
+                Foreground="White"
+                Height="91"
+                BorderBrush="#00707070"
+                Click="btnEncuesta_Click"
+                Visibility="Visible"
+                Panel.ZIndex="2"
+                FontSize="24"
+                Margin="-2,0,0,26"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Width="388"
+                HorizontalContentAlignment="Right"
+                />
     </Grid>
 
 </Window>
